@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1519296450 source:/home/byzilio/Workspace/imit-sim4-cpp-lab1/main.cpp
+	<iostream>
+	<string>
+	"include/Vector.h"
+
+1519287340 /home/byzilio/Workspace/imit-sim4-cpp-lab1/include/vector.h
+	<iostream>
+
+1519288358 source:/home/byzilio/Workspace/imit-sim4-cpp-lab1/src/vector.cpp
+	"../include/vector.h"
+	<iostream>
+	<cstdlib>
+	<cstring>
+
+1519296518 /home/byzilio/Workspace/imit-sim4-cpp-lab1/include/Vector.h
+	<iostream>
+
+1519289835 source:/home/byzilio/Workspace/imit-sim4-cpp-lab1/src/RingBuffer.cpp
+	"RingBuffer.h"
+
+1519289544 /home/byzilio/Workspace/imit-sim4-cpp-lab1/include/RingBuffer.h
+	"Vector.h"
+
+1519297150 source:/home/byzilio/Workspace/imit-sim4-cpp-lab1/src/Vector.cpp
+	"../include/Vector.h"
+	<iostream>
+	<cstdlib>
+	<cstring>
+
