@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1519722644 source:/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab2/main.cpp
+	<iostream>
+	"Queue.h"
+	"Iterator.h"
+
+1519720470 /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab2/include/Queue.h
+
+1519721539 source:/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab2/src/Queue.cpp
+	"../include/Queue.h"
+
+1519722680 /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab2/include/Iterator.h
+	"Queue.h"
+
+1519722539 source:/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab2/src/Iterator.cpp
+	"../include/Iterator.h"
+
