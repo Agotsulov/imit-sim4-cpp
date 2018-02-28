@@ -16,7 +16,7 @@ class Iterator
     private:
         int index;
         int value;
-        Queue q;
+        Queue *q;
 };
 
 #endif // ITERATOR_H

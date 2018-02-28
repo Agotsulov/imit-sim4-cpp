@@ -13,6 +13,13 @@ class Queue
         int size();
         void empty();
         bool isEmpty();
+
+        int* getArray();
+        int getHead();
+        int getTail();
+        int getSizeArray();
+
+
         virtual ~Queue();
     protected:
     private:

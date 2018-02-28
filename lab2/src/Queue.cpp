@@ -53,6 +53,24 @@ void Queue::empty(){
     head = tail;
 }
 
+int* Queue::getArray(){
+    return array;
+}
+
+int Queue::getHead(){
+    return head;
+}
+
+int Queue::getTail(){
+    return tail;
+}
+
+int Queue::getSizeArray(){
+    return sizeArray;
+}
+
+
+
 Queue::~Queue()
 {
     sizeArray = 0;

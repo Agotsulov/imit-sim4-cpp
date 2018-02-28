@@ -1,27 +1,28 @@
 #include "../include/Iterator.h"
 
+#include <iostream>
+
+
 Iterator::Iterator(Queue &queue)
 {
-    q = queue;
+    this->q = &queue;
     start();
 }
 
 void Iterator::start(){
-    index = 0;
-    value = 0;
+    index = q->getHead();
 }
 
 void Iterator::next(){
-    index++;
-    value = q.pop();
+    index = (index + 1) % q->getSizeArray();
 }
 
 bool Iterator::finish(){
-    return (q.size() == 0);
+    return (index == q->getTail() - 1);
 }
 
 int Iterator::getValue(){
-    return value;
+    return q->getArray()[index];
 }
 
 Iterator::~Iterator()
