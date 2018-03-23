@@ -19,7 +19,6 @@ class Queue
         int getTail();
         int getSizeArray();
 
-
         virtual ~Queue();
     protected:
     private:

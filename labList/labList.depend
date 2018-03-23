@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1521212135 source:/home/byzilio/Workspace/Cpp/imit-sim4-cpp/labList/main.cpp
+	<iostream>
+	"include/List.h"
+
+1520416596 source:/home/byzilio/Workspace/Cpp/imit-sim4-cpp/labList/src/List.cpp
+	"../include/List.h"
+
+1521212205 /home/byzilio/Workspace/Cpp/imit-sim4-cpp/labList/include/List.h
+
+1520416375 /home/byzilio/Workspace/Cpp/imit-sim4-cpp/labList/List.h
+
+1520416499 source:/home/byzilio/Workspace/Cpp/imit-sim4-cpp/labList/List.cpp
+	"List.h"
+

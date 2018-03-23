@@ -1,0 +1,1 @@
+/usr/bin/c++   -g    CMakeFiles/lab3.dir/main.o  -o lab3 -rdynamic 

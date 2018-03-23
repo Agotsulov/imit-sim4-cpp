@@ -69,8 +69,6 @@ int Queue::getSizeArray(){
     return sizeArray;
 }
 
-
-
 Queue::~Queue()
 {
     sizeArray = 0;
