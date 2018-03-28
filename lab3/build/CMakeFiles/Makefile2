@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build
 CMakeFiles/lab3.dir/all:
 	$(MAKE) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/depend
 	$(MAKE) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles  1 2
 	@echo "Built target lab3"
 .PHONY : CMakeFiles/lab3.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/lab3.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/lab3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/lab3.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles 0
 .PHONY : CMakeFiles/lab3.dir/rule

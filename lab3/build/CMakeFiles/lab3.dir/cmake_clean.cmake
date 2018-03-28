@@ -1,4 +1,5 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/lab3.dir/ringedlist.o"
   "CMakeFiles/lab3.dir/main.o"
   "lab3.pdb"
   "lab3"

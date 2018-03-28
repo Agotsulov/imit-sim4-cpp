@@ -6,26 +6,47 @@
 template <typename T>
 class List
 {
-    struct Data{
-        T value;
-        struct Data* next;
-	struct Data* prev;
-    };
     public:
-        List();
-	virtual insert( Iterator pos, const T& value );
-        virtual void erase( Iterator pos );
-	virtual Iterator search(const T& value);
-	void clear();
-	bool empty();
-	int size();
-	virtual Iterator iterator();
-	virtual ~List();
+
+        virtual void insert( Iterator<T> pos, const T& value ); 
+        virtual void insert( Data<T>* pos, const T& value ); 
+        
+        virtual Iterator<T> erase( Iterator<T> pos );
+        virtual Data<T>* erase( Data<T>* pos );
+        
+        virtual Iterator<T> search(const T& value);
+//        void push_front(const T& value);
+//        T pop_front();
+//        void push_back(const T& value);
+//        T pop_back();
+        void clear();
+        bool empty();
+        int size();
+        virtual Iterator<T> iterator();
     protected:
-    private:
-        Data* tail;
-        Data* head;
+        Data<T>* buff;
+        //Data<T>* head;
         int length;
+    private:
 };
+
+template<typename T>
+bool List<T>::empty(){  
+    if(length <= 0) 
+        return false;
+    else 
+        return true;
+}
+
+template <typename T>
+void List<T>::clear(){
+    this->buff = 0x0;
+}
+
+
+template<typename T>
+int List<T>::size(){
+    return length;
+}
 
 #endif // LIST_H

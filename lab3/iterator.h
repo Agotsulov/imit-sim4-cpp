@@ -2,17 +2,37 @@
 #define ITERATOR_H
 
 template <typename T>
+struct Data{
+    T value;        
+    struct Data* next;
+    struct Data* prev;    
+};
+
+template <typename T>
 class Iterator
 {
     public:
-        Iterator();
-	virtual void start();
-	virtual T get();
-	virtual void next();
-	virtual bool empty();
-	virtual ~Iterator();
+        virtual void start();
+        virtual T get();
+        virtual void next();    
+        virtual bool empty();
+        virtual Data<T>* pos();
     protected:
+        Data<T>* curr;
+        Data<T>* begin;
     private:
 };
+
+template <typename T>
+void Iterator<T>::start()
+{
+    this->curr = this->begin;
+}
+
+template <typename T>
+Data<T>* Iterator<T>::pos(){
+    return this->curr;
+}
+
 
 #endif // ITERATOR_H

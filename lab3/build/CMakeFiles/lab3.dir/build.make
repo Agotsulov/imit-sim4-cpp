@@ -49,9 +49,32 @@ include CMakeFiles/lab3.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/lab3.dir/flags.make
 
+CMakeFiles/lab3.dir/ringedlist.o: CMakeFiles/lab3.dir/flags.make
+CMakeFiles/lab3.dir/ringedlist.o: ../ringedlist.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/lab3.dir/ringedlist.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/ringedlist.o -c /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/ringedlist.cpp
+
+CMakeFiles/lab3.dir/ringedlist.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/ringedlist.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/ringedlist.cpp > CMakeFiles/lab3.dir/ringedlist.i
+
+CMakeFiles/lab3.dir/ringedlist.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/ringedlist.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/ringedlist.cpp -o CMakeFiles/lab3.dir/ringedlist.s
+
+CMakeFiles/lab3.dir/ringedlist.o.requires:
+.PHONY : CMakeFiles/lab3.dir/ringedlist.o.requires
+
+CMakeFiles/lab3.dir/ringedlist.o.provides: CMakeFiles/lab3.dir/ringedlist.o.requires
+	$(MAKE) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/ringedlist.o.provides.build
+.PHONY : CMakeFiles/lab3.dir/ringedlist.o.provides
+
+CMakeFiles/lab3.dir/ringedlist.o.provides.build: CMakeFiles/lab3.dir/ringedlist.o
+
 CMakeFiles/lab3.dir/main.o: CMakeFiles/lab3.dir/flags.make
 CMakeFiles/lab3.dir/main.o: ../main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/lab3.dir/main.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/main.o -c /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/main.cpp
 
@@ -74,11 +97,13 @@ CMakeFiles/lab3.dir/main.o.provides.build: CMakeFiles/lab3.dir/main.o
 
 # Object files for target lab3
 lab3_OBJECTS = \
+"CMakeFiles/lab3.dir/ringedlist.o" \
 "CMakeFiles/lab3.dir/main.o"
 
 # External object files for target lab3
 lab3_EXTERNAL_OBJECTS =
 
+lab3: CMakeFiles/lab3.dir/ringedlist.o
 lab3: CMakeFiles/lab3.dir/main.o
 lab3: CMakeFiles/lab3.dir/build.make
 lab3: CMakeFiles/lab3.dir/link.txt
@@ -89,6 +114,7 @@ lab3: CMakeFiles/lab3.dir/link.txt
 CMakeFiles/lab3.dir/build: lab3
 .PHONY : CMakeFiles/lab3.dir/build
 
+CMakeFiles/lab3.dir/requires: CMakeFiles/lab3.dir/ringedlist.o.requires
 CMakeFiles/lab3.dir/requires: CMakeFiles/lab3.dir/main.o.requires
 .PHONY : CMakeFiles/lab3.dir/requires
 

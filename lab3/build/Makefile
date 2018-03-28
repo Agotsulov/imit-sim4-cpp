@@ -167,6 +167,21 @@ main.s:
 	$(MAKE) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/main.s
 .PHONY : main.s
 
+# target to build an object file
+ringedlist.o:
+	$(MAKE) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/ringedlist.o
+.PHONY : ringedlist.o
+
+# target to preprocess a source file
+ringedlist.i:
+	$(MAKE) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/ringedlist.i
+.PHONY : ringedlist.i
+
+# target to generate assembly for a file
+ringedlist.s:
+	$(MAKE) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/ringedlist.s
+.PHONY : ringedlist.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -183,6 +198,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... ringedlist.o"
+	@echo "... ringedlist.i"
+	@echo "... ringedlist.s"
 .PHONY : help
 
 
