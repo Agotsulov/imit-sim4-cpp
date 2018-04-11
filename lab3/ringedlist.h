@@ -8,14 +8,10 @@ class RingedList : public List<T>
 {
     public:
         RingedList();
-        //void insert( Iterator pos, const T& value ); 
-        //void erase( Iterator pos );
-        //Iterator search(const T& value);
-        //void clear();
-        //Iterator iterator();
         ~RingedList();
     private:
     protected:
+        
 };
 
 template <typename T>
@@ -31,7 +27,7 @@ class RingedIterator : public Iterator<T>
 template<typename T>
 RingedIterator<T>::RingedIterator(Data<T>* first)
 {
-    this->begin = first;
+    this->buff = first;
     this->start();
 }
 
@@ -48,7 +44,7 @@ T Iterator<T>::get(){
 
 template <typename T>
 bool Iterator<T>::empty(){   
-    if(this->curr == this->begin)
+    if(this->curr == this->buff->next)
         return true;
     else 
         return false;
@@ -57,65 +53,76 @@ bool Iterator<T>::empty(){
 template <typename T>
 RingedIterator<T>::~RingedIterator()
 {
-    this->begin = 0;
-    this->curr = 0;
+    delete this->buff;
+    delete this->curr;
 }
-
-
 
 //ITERATOR END
 
 
-template <typename T>
-RingedList<T>::RingedList(){
-    Data<T>* d;
-    this->buff = d;
-}
+
 
 template <typename T>
-void List<T>::insert( Data<T>* pos,const T& value){
-    length++;
-    Data<T>* p;
-    Data<T>* n;
-    n = pos->next; 
-    pos->next = p; 
-    p->value = value;
-    p->next = n; 
-    p->prev = pos;
-    n->prev = p;
+RingedList<T>::RingedList(){
+    Data<T>* s = new Data<T>;
+    this->buff = s;
+    this->length = 0; 
+    
+    /*
+    Data<T>* head = new Data<T>;
+    Data<T>* tail = new Data<T>;
+
+    this->buff->next = head;
+    head->prev = tail;
+    tail->next = head;
+    this->buff->prev = tail;
+    */
+    
 }
+
 
 template <typename T>
 void List<T>::insert( Iterator<T> pos,const T& value){
     length++;
-    Data<T>* p;
-    Data<T>* n;
-    Data<T>* c = pos.pos();
-    n = c->next; 
-    c->next = p; 
-    p->value = value;
-    p->next = n; 
-    p->prev = c;
-    n->prev = p;    
+    Data<T>* curr = pos.pos();
+    
 }
-
-
 
 template <typename T>
-Data<T>* List<T>::erase( Data<T>* pos){
-    length--;
-    Data<T>* p;
-    Data<T>* n;
-    p = pos->prev;
-    n = pos->next; 
-    p->next = pos->next; 
-    n->prev = pos->prev; 
-    return pos;
+void List<T>::push_front( const T& value){
+    length++;
+    if(this->buff->next == 0x0){
+        Data<T> * n = new Data<T>;
+        n->value = value;
+        this->buff->next = n;
+        this->buff->prev = n;
+        n->prev = this->buff->next;
+        n->next = this->buff->prev;
+    } else {
+        Data<T> * n = new Data<T>;
+        Data<T> * p = this->buff->next;
+        n->value = value;
+        n->prev = p;
+        n->next = this->buff->prev;
+        p->next = n;    
+        this->buff->next = n;
+    }
 }
+
+template <typename T>
+void List<T>::push_back( const T& value){
+    length++;
+    Data<T> * n = new Data<T>;
+    n->value = value;
+    n->prev = this->buff->next;
+    n->next = this->buff->prev;
+    this->buff->prev = n;
+    n->next->prev = n;    
+}
+
 
 template <typename T>
 Iterator<T> List<T>::erase( Iterator<T> pos){
-    this->erase(pos.pos());
     return pos;
 }
 
@@ -138,7 +145,7 @@ Iterator<T> List<T>::search(const T& value){
 
 template <typename T>
 RingedList<T>::~RingedList(){
-    this->buff = 0x0;
+    delete this->buff;
 }
 
 

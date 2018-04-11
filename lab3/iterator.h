@@ -19,14 +19,14 @@ class Iterator
         virtual Data<T>* pos();
     protected:
         Data<T>* curr;
-        Data<T>* begin;
+        Data<T>* buff;
     private:
 };
 
 template <typename T>
 void Iterator<T>::start()
 {
-    this->curr = this->begin;
+    this->curr = this->buff->prev;
 }
 
 template <typename T>
