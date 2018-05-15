@@ -7,7 +7,6 @@ template <typename T>
 class List
 {
     public:
-
         virtual void insert( Iterator<T> pos, const T& value ); 
         
         virtual Iterator<T> erase( Iterator<T> pos );
@@ -22,8 +21,6 @@ class List
         int size();
         
         virtual Iterator<T> iterator();
-        
-        
     protected:
         Data<T>* buff;
         int length;

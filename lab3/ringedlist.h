@@ -44,7 +44,7 @@ T Iterator<T>::get(){
 
 template <typename T>
 bool Iterator<T>::empty(){   
-    if(this->curr == this->buff->next)
+    if((this->curr == 0x0) || (this->curr == this->buff->next)) 
         return true;
     else 
         return false;
@@ -61,31 +61,45 @@ RingedIterator<T>::~RingedIterator()
 
 
 
-
 template <typename T>
 RingedList<T>::RingedList(){
     Data<T>* s = new Data<T>;
     this->buff = s;
-    this->length = 0; 
-    
-    /*
-    Data<T>* head = new Data<T>;
-    Data<T>* tail = new Data<T>;
-
-    this->buff->next = head;
-    head->prev = tail;
-    tail->next = head;
-    this->buff->prev = tail;
-    */
-    
+    this->buff->value = 0;
+    this->buff->next = new Data<T>;
+    this->buff->prev = new Data<T>;
+    this->length = 0;    
 }
 
 
 template <typename T>
 void List<T>::insert( Iterator<T> pos,const T& value){
-    length++;
-    Data<T>* curr = pos.pos();
+    if(length == 0){
+        Data<T> *curr = this->buff;
+        Data<T> *temp = new Data<T>;
+        Data<T> *p = 0x0;
     
+        p = curr->next;
+        curr->next = temp;
+        temp->value = value;
+        temp->next = p;
+        temp->prev = curr;  
+    
+        p->prev = temp; 
+    } else {
+        Data<T> *curr = pos.pos();
+        Data<T> *temp = new Data<T>;
+        Data<T> *p = 0x0;
+    
+        p = curr->next;
+        curr->next = temp;
+        temp->value = value;
+        temp->next = p;
+        temp->prev = curr;  
+    
+        p->prev = temp;  
+    }
+    length++;
 }
 
 template <typename T>
