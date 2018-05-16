@@ -13,9 +13,6 @@ class List
         
         virtual Iterator<T> search(const T& value);
         
-        virtual void push_front(const T& value);
-        virtual void push_back(const T& value);
-        
         void clear();
         bool empty();
         int size();
