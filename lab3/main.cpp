@@ -26,24 +26,17 @@ int main(int argc, char **argv) {
     i.next();
     r.insert(i, 991231);
     
-    //i.next();
-    //r.erase(i);
+    i.next();
+    r.erase(i);
     //r.erase(i);
 
     i.next();
     r.insert(i, 11);
+    i.next();
     
     i.next();
     r.insert(i, 322);
      
-    /*
-    r.push_front(6);
-    r.push_front(-12);
-    r.push_front(12412);
-    r.push_front(8);
-    r.push_front(7);
-    */
-    
     i.start();
     do{
         i.next();

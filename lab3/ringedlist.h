@@ -79,24 +79,6 @@ RingedList<T>::RingedList(){
 
 template <typename T>
 void List<T>::insert( Iterator<T> pos,const T& value){
-    /*
-    Data<T> *curr = pos.pos();
-    Data<T> *temp = new Data<T>;
-    Data<T> *follow = 0x0;
-    
-    if(length == 0)
-        curr = this->buff;
-    else 
-        curr = pos.pos();
-    
-    follow = curr->next;
-    temp->value = value;
-    temp->next = follow;
-    temp->prev = curr;
-    curr->next = temp;
-    
-    follow->prev = curr;
-    */
     if(length == 0){
         Data<T> *curr = this->buff;
         Data<T> *temp = new Data<T>; //Почему так странно выделяет память?

@@ -26,7 +26,7 @@ class Iterator
 template <typename T>
 void Iterator<T>::start()
 {   
-    this->curr = this->buff;
+    this->curr = this->buff->next;
 }
 
 template <typename T>
