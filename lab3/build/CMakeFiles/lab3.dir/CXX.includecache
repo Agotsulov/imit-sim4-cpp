@@ -15,6 +15,10 @@ iterator.h
 /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/main.cpp
 iostream
 -
+cstdio
+-
+stdlib.h
+-
 ringedlist.h
 /home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab3/ringedlist.h
 

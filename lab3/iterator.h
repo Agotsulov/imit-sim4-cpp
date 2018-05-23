@@ -14,7 +14,8 @@ class Iterator
     public:
         virtual void start();
         virtual T get();
-        virtual void next();    
+        virtual void next();   
+        virtual void prev(); 
         virtual bool empty();
         virtual Data<T>* pos();
     protected:

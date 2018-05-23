@@ -7,13 +7,13 @@ template <typename T>
 class List
 {
     public:
-        virtual void insert( Iterator<T> pos, const T& value ); 
+        virtual void insert( Iterator<T> &pos, const T& value ); 
         
-        virtual Iterator<T> erase( Iterator<T> pos );
+        virtual Iterator<T> erase( Iterator<T> &pos );
         
         virtual Iterator<T> search(const T& value);
         
-        void clear();
+        virtual void clear();
         bool empty();
         int size();
         
@@ -32,10 +32,6 @@ bool List<T>::empty(){
         return true;
 }
 
-template <typename T>
-void List<T>::clear(){
-    this->buff = 0x0;
-}
 
 
 template<typename T>

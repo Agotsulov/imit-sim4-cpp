@@ -6,12 +6,14 @@
 
 int main(int argc, char **argv) {
     std::cout << "C++ is the worst programming language!" << std::endl;
+
     RingedList<int> r;
     Iterator<int> i = r.iterator();
     
     r.insert(i , 4);
     i.next();
     r.insert(i, -9);
+
        
     i.start();
     i.next();
@@ -28,7 +30,7 @@ int main(int argc, char **argv) {
     
     i.next();
     r.erase(i);
-    //r.erase(i);
+    r.erase(i);
 
     i.next();
     r.insert(i, 11);
@@ -39,11 +41,55 @@ int main(int argc, char **argv) {
      
     i.start();
     do{
-        i.next();
         std::cout << i.get() << std::endl;
+
+        i.next();
     }while(!i.empty());
     
-    std::cout << "Search = " << r.search(200000).get() << std::endl;
+    std::cout << "ABABABABA" << std::endl;
+
+    //std::cout << "Search = " << r.search(200000).get() << std::endl;
+    
+    r.clear();
+    i = r.iterator();
+    
+    r.insert(i, 1);
+    i.next();
+    r.insert(i, 3);
+    r.insert(i, 2);
+    
+
+    std::cout << std::endl << "After clear" << std::endl;
+
+    i.start();
+    while(!i.empty()){
+        std::cout << i.get() << std::endl;
+        i.next();
+    }
+
+    RingedList<int> r2(r);
+    Iterator<int> i2 = r2.iterator(); 
+    i2.start();
+    while(!i2.empty()){
+        std::cout << i2.get() << std::endl;
+        i2.next();
+    }
+
+    RingedList<int> r3(std::move(r));
+    Iterator<int> i3 = r3.iterator(); 
+    i3.start();
+    while(!i3.empty()){
+        std::cout << i3.get() << std::endl;
+        i3.next();
+    }
+
+    i = r.iterator();
+    i.start();
+    while(!i.empty()){
+        std::cout << i.get() << std::endl;
+
+        i.next();
+    }
     
 
     getchar(); //2018 год у Microsoft в VS code сам закрывается теринал...
