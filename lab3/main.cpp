@@ -40,11 +40,11 @@ int main(int argc, char **argv) {
     r.insert(i, 322);
      
     i.start();
-    do{
+    while(!i.empty()){
         std::cout << i.get() << std::endl;
 
         i.next();
-    }while(!i.empty());
+    }
     
     std::cout << "ABABABABA" << std::endl;
 
@@ -67,6 +67,9 @@ int main(int argc, char **argv) {
         i.next();
     }
 
+
+    std::cout << "copy" << std::endl;
+
     RingedList<int> r2(r);
     Iterator<int> i2 = r2.iterator(); 
     i2.start();
@@ -74,6 +77,7 @@ int main(int argc, char **argv) {
         std::cout << i2.get() << std::endl;
         i2.next();
     }
+    std::cout << "move" << std::endl;
 
     RingedList<int> r3(std::move(r));
     Iterator<int> i3 = r3.iterator(); 
@@ -83,6 +87,9 @@ int main(int argc, char **argv) {
         i3.next();
     }
 
+
+
+    std::cout << "check" << std::endl;
     i = r.iterator();
     i.start();
     while(!i.empty()){

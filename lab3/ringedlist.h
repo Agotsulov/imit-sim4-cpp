@@ -10,8 +10,8 @@ class RingedList : public List<T>
 {
     public:
         RingedList();
-        RingedList(const List<T> &other);
-        RingedList(const List<T> &&other);
+        RingedList(RingedList<T> &other);
+        RingedList(RingedList<T> &&other);
         ~RingedList();
         RingedList<T>& operator= (const List<T> &other);
         void operator= (const List<T> &&other);
@@ -93,37 +93,40 @@ RingedList<T>::RingedList(){
 }
 
 template <typename T>
-RingedList<T>::RingedList(const List<T> &other){
+RingedList<T>::RingedList(RingedList<T> &other){
     this->buff = new Data<T>;
     this->buff->value = 0;
     this->buff->next = 0x0;
     this->buff->prev = 0x0;
+    this->length = 0;
     Iterator<T> i = other.iterator();
-    Iterator<T> c = this.iterator();
+    Iterator<T> c = this->iterator();
     while(!i.empty()){
-        insert(c, i.get());
+        this->insert(c, i.get());
         i.next();
         c.next();   
     }
-    this->length = other.length;
+    //this->length = other.length;
 
 }
 
 
 template <typename T>
-RingedList<T>::RingedList(const List<T> &&other){
+RingedList<T>::RingedList(RingedList<T> &&other){
     this->buff = new Data<T>;
     this->buff->value = 0;
     this->buff->next = 0x0;
     this->buff->prev = 0x0;
     Iterator<T> i = other.iterator();
-    Iterator<T> c = this.iterator();
+    Iterator<T> c = this->iterator();
+    this->length = 0;
     while(!i.empty()){
-        insert(c, i.get());
+        this->insert(c, i.get());
         i.next();
         c.next();   
     }
-    this->length = other.length;
+    //this->length = other.length;
+    
 
     other.clear();
 }
@@ -148,14 +151,14 @@ void RingedList<T>::operator=(const List<T> &&other){
     RingedList r = this;
     Iterator<T> i = other.iterator();
     Iterator<T> c = r.iterator();
+    r.length = 0;
     while(!i.empty()){
         insert(c, i.get());
         i.next();
         c.next();   
     }
-    r.length = other.length;
 
-    delete other;
+    other.clear();
 }
 
 template <typename T>
