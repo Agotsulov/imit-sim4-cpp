@@ -15,9 +15,9 @@ class Iterator
         virtual T get();
         virtual void next(); 
         virtual bool isEmpty();
-        virtual Data<T>* pos();
+        virtual Data<T>* data();
 
-        virtual T operator++();
+        //virtual T operator++();
     protected:
         Data<T>* curr;
         Data<T>* begin;
