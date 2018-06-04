@@ -1,26 +1,27 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
-template <typename T>
+template <typename V, typename K>
 struct Data{
-    T value;        
+    V value;        
+    K key;
     struct Data* next;    
 };
 
-template <typename T>
+template <typename V, typename K>
 class Iterator
 {
     public:
         virtual void start();
-        virtual T get();
+        virtual V get();
         virtual void next(); 
         virtual bool isEmpty();
-        virtual Data<T>* data();
+        virtual Data<V,K>* data();
 
         //virtual T operator++();
     protected:
-        Data<T>* curr;
-        Data<T>* begin;
+        Data<V,K>* curr;
+        Data<V,K>* begin;
     private:
 };
 

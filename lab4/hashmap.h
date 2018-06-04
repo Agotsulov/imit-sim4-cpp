@@ -18,9 +18,9 @@ class HashMap{
 
         virtual K search(V value);
 
-        virtual Iterator<V> iterator();
+        virtual Iterator<V,K> iterator();
     protected:
-        Data<V> *data;
+        Data<V,K> *data;
         int data_size;
 };
 

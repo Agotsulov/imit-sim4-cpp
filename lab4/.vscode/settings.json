@@ -2,6 +2,8 @@
     "files.associations": {
         "type_traits": "cpp",
         "initializer_list": "cpp",
-        "istream": "cpp"
-    }
+        "istream": "cpp",
+        "iostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
