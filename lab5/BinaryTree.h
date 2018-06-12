@@ -20,6 +20,10 @@ class BinaryTree{
 
         bool allPositive();
 
+        int countEven();
+
+        T arithmeticalMean();
+
         bool checkBinaryTree(T expect_min, T expect_max); //пробегать и проверять что в конце максимальное и начале наименьшее
 
         TreeNode<T>* min(TreeNode<T> *s);
@@ -31,6 +35,10 @@ class BinaryTree{
 
         ~BinaryTree();
     private:
+        vector<bool> search(T value, TreeNode<T> *n);
+        T sum(TreeNode<T> *n);
+        int countEven(TreeNode<T> *n);
+        void removeLeafs(TreeNode<T> *n);
         bool positive(TreeNode<T> *n);
         void show(int *tab_count, TreeNode<T> *n,ostream& out);
     protected:
@@ -109,34 +117,74 @@ void BinaryTree<T>::insert(TreeNode<T> *x, TreeNode<T> *z){
 
 template<typename T>
 void BinaryTree<T>::removeLeafs(){
+    removeLeafs(root);
+}
 
+template<typename T>
+void BinaryTree<T>::removeLeafs(TreeNode<T> *n){
+    if((n->less == 0x0) && (n->more == 0x0)){
+        TreeNode<T> *parent = n->parent;
+        if(parent->less == n)
+            parent->less = 0x0;
+         else 
+            parent->more = 0x0;
+        delete n;
+    } else {
+        if(n->less != 0x0)
+            removeLeafs(n->less);
+        if(n->more != 0x0)
+            removeLeafs(n->more);
+    }
+}
+
+template <typename T>
+T BinaryTree<T>::arithmeticalMean(){
+    return sum(root) / size();
+}
+
+template <typename T>
+T BinaryTree<T>::sum(TreeNode<T> *n){
+    T result = n->value;
+    if(n->less != 0x0)
+        result += sum(n->less);
+    if(n->more != 0x0)
+        result += sum(n->more);
+    return result;
 }
 
 template<typename T>
 vector<bool> BinaryTree<T>::search(T value){
-    vector<bool> path(count);
-
-    int i = 0;
-    TreeNode<T> *curr = root;
-    while((curr != 0x0) || (curr->value != value)){
-        if(value > curr->value){
-            path[i] = 1;
-            i++;
-            curr = curr->more;
-        } else if (value < curr->value){
-            path[i] = 0;
-            i++;
-            curr = curr->less;
-        } 
-        if(curr->value == value) //WAT?
-            break;
-        if(curr == 0x0) 
-            break;
-    }
-
-    if(curr == 0x0)
+    return {};
+    /*
+    vector<bool> *path;
+    if (root->value == value)
         return {};
-    return path;
+
+    int size_path = 1;
+    while(size_path != size())
+    return *path;
+    */
+}
+
+template<typename T>
+vector<bool> BinaryTree<T>::search(T value, TreeNode<T> *n){
+    return {};
+    /*
+    TreeNode<T> *curr = root;
+    for(int i = 0;i < code.size();i++){
+        if(curr == 0x0)
+            throw "Неверный код";
+        if(curr == value)
+            return true;
+
+        if(code[i] == 1){
+            curr = curr->more;
+        } else if(code[i] == 0){
+            curr = curr->less;
+        }
+    }
+    return false;
+    */
 }
 
 template<typename T>
@@ -164,19 +212,42 @@ TreeNode<T>* BinaryTree<T>::max(TreeNode<T> *s){
 
 template <typename T>
 bool BinaryTree<T>::allPositive(){
+    if(size() == 0)
+        return true;
     return positive(root);
 }
 
 template <typename T>
 bool BinaryTree<T>::positive(TreeNode<T> *n){
-    return ((n->value > 0) && (n->more != 0x0) && (n->less != 0x0) && 
-        (positive(n->less)) && (positive(n->more)));
+    return ((n->value > 0) 
+        && ((n->less == 0x0) || (positive(n->less))) 
+        && ((n->more == 0x0) || (positive(n->more)))
+        );
 }
 
 
 template <typename T>
 int BinaryTree<T>::size(){
     return count;
+}
+
+template <typename T>
+int BinaryTree<T>::countEven(){
+    return countEven(root);
+}
+
+template <typename T>
+int BinaryTree<T>::countEven(TreeNode<T> *n){
+    int result = 0;
+    if(n->value % 2 == 0)
+        result = 1;
+
+    if(n->less != 0x0)
+        result += countEven(n->less);
+    if(n->more != 0x0)
+        result += countEven(n->more);
+
+    return result;
 }
 
 template <typename T>

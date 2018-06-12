@@ -37,12 +37,27 @@ int main(int argc, char **argv) {
     
     t << cout;
 
+    cout << "Кол-во четных:" << t.countEven() << endl;
+
+    cout << "Среднее арифметическое:" << t.arithmeticalMean() << endl; //Считает в том же типе
+
+    cout << "Двоичное ли дерево:" << t.checkBinaryTree(1,10) << endl;
+
     if(testSearch())
         cout << "SUCCESS" << endl;
 
     cout << "TEST ALLPOSITIVE" << endl;
     if(t.allPositive())
         cout << "SUCCESS" << endl;
+
+    cout << "TEST REMOVELEAFS" << endl;
+    t.removeLeafs();
+
+    t << cout;
+    cout << "TEST REMOVELEAFS" << endl;
+    t.removeLeafs();
+
+    t << cout;
 
     getchar(); //2018 год у Microsoft в VS code сам закрывается теринал...
 
