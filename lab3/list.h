@@ -4,7 +4,7 @@
 #include "iterator.h"
 
 template <typename T>
- class List
+class List
 {
     public:
         virtual void insert( Iterator<T> &pos, const T& value ); 
