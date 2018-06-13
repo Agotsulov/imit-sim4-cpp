@@ -201,7 +201,8 @@ TreeNode* BinaryTree::remove(TreeNode *n,string value){
 }
 
 void BinaryTree::clear(){
-    free(root);
+    if(root != 0x0)
+        free(root);
     count = 0;
     root = 0x0;
 }
@@ -209,8 +210,12 @@ void BinaryTree::clear(){
 void BinaryTree::free(TreeNode *n){
     if(n->less != 0x0) 
         free(n->less);
+    else 
+        delete n->less;
     if(n->more != 0x0) 
         free(n->more);
+    else 
+        delete n->more;
     delete n;
 }
 
@@ -275,7 +280,7 @@ ostream& BinaryTree::operator<<(ostream& out)  {
   
 
 BinaryTree::~BinaryTree(){
-    //clear();
+    clear();
 };
 
 
