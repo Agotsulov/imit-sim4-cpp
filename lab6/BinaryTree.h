@@ -168,6 +168,8 @@ TreeNode* BinaryTree::searchTreeNode(TreeNode *n,string value){
 
 void BinaryTree::remove(string value){
     TreeNode *s = searchTreeNode(value);
+    if(s == 0x0)
+        return;
     if(s->count > 1)
         s->count--;
     else 
