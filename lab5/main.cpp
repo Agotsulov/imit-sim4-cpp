@@ -34,8 +34,24 @@ int main(int argc, char **argv) {
 
     t.insert(4,{0,1});
     t.insert(1,{0,0});
+
+
+    BinaryTree<int> copy(t);
     
+
+    cout << "Вывод" << endl;
     t << cout;
+
+    cout << "Вывод" << endl;
+    t.show(cout);
+
+    cout << "TEST COPY" << endl;
+    copy << cout;
+
+    cout << "CLEAR COPY" << endl;
+    copy.clear();
+    copy << cout;
+
 
     cout << "Кол-во четных:" << t.countEven() << endl;
 
@@ -43,20 +59,27 @@ int main(int argc, char **argv) {
 
     cout << "Двоичное ли дерево:" << t.checkBinaryTree(1,10) << endl;
 
-    if(testSearch())
-        cout << "SUCCESS" << endl;
+    int search = 4;
+    cout << "Search = " << search << endl;
+    cout << "Path:";
+    vector<bool> path;
+    path = t.search(4);
+    for(int i = 0;i < path.size();i++)
+        cout << " " << path[i] << " " ;
+    cout << endl;
 
-    cout << "TEST ALLPOSITIVE" << endl;
-    if(t.allPositive())
-        cout << "SUCCESS" << endl;
+    cout << "TEST ALLPOSITIVE:";
+    cout << t.allPositive() << endl;
 
-    cout << "TEST REMOVELEAFS" << endl;
+    cout << "REMOVELEAFS" << endl;
     t.removeLeafs();
 
+    cout << "Вывод" << endl;
     t << cout;
-    cout << "TEST REMOVELEAFS" << endl;
+    cout << "REMOVELEAFS" << endl;
     t.removeLeafs();
 
+    cout << "Вывод" << endl;
     t << cout;
 
     getchar(); //2018 год у Microsoft в VS code сам закрывается теринал...
