@@ -297,7 +297,6 @@ void LinkedHashMap<K,V>::remove(K key){
             }    
         }
     }
-    //Дописать перенос коллизий
 }
 
 

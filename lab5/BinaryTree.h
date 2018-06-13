@@ -350,7 +350,7 @@ ostream& BinaryTree<T>::operator<<(ostream& out)  {
 
 template <typename T>
 BinaryTree<T>::~BinaryTree(){
-    
+    clear();
 };
 
 

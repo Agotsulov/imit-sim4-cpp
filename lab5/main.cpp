@@ -4,21 +4,6 @@
 
 using namespace std;
 
-bool testSearch(){
-    cout << "TEST SEARCH" << endl;
-    
-    BinaryTree<int> t(5);
-
-    vector<bool> code = {1};
-    
-    t.insert(6,{1});
-    t.insert(1,{0});
-
-    if(code == t.search(6))
-        return true;
-
-    return false;
-}
 
 int main(int argc, char **argv) {
     std::cout << "C++ is the worst programming language!" << std::endl;
@@ -37,7 +22,6 @@ int main(int argc, char **argv) {
 
 
     BinaryTree<int> copy(t);
-    
 
     cout << "Вывод" << endl;
     t << cout;
