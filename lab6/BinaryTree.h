@@ -59,6 +59,7 @@ BinaryTree::BinaryTree(string value){
     root->more = 0x0;
     root->parent = 0x0;
     root->value = value;
+    root->count = 1;
     count = 1;
 }
 
@@ -78,11 +79,13 @@ BinaryTree::BinaryTree(BinaryTree &&other){
 }
 
 BinaryTree& BinaryTree::operator=(BinaryTree &other){
-    BinaryTree copy(other);
+    BinaryTree &copy(other);
+    return copy;
 } 
 
 BinaryTree& BinaryTree::operator=(BinaryTree &&other){
     BinaryTree copy(move(other));
+    return copy;
 }       
     
 TreeNode* BinaryTree::dublicate(TreeNode *n){
@@ -131,11 +134,11 @@ void BinaryTree::insert(TreeNode *x, TreeNode *z){
                     x->less = z;
                     break;
             } 
-        }else if(z->value.compare(x->value) == 0){
-            x->count++;
-            break;
+        } else if(z->value.compare(x->value) == 0){
+                x->count++;
+                break;
+            }
         }
-    }
     }
 } 
 
