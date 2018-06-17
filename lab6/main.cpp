@@ -9,6 +9,11 @@ using namespace std;
 int main(int argc, char **argv) {
     std::cout << "C++ is the worst programming language!" << std::endl;
 
+    cout << "Скриншоты работоспособности программы внутри проекта" << endl;
+    cout << "Screenshots of work inside the project" << endl;
+    cout << "agrs -g main.cpp -o main -std=c++11" << endl;
+    cout << "g++ (Ubuntu 4.8.4-2ubuntu1~14.04.4) 4.8.4" << endl;
+
     BinaryTree t("a");
 
 
@@ -34,31 +39,30 @@ int main(int argc, char **argv) {
     t.insert("a");
     t.insert("a");
 
+    BinaryTree copy(t); //Копируем. Конструкор перемещения аналогичен ,только в конце clear(); Далее док-во что clear работает
 
-    BinaryTree copy(t);
-    
-
-    cout << "Вывод" << endl;
-    t << cout;
+    cout << "Show t" << endl;
+    t << cout; //В операторе<< есть строки которые для удобства можно раскоментить
     cout << endl;
 
-    cout << "TEST COPY" << endl;
+    cout << "Show copy" << endl;
     copy << cout;
     cout << endl;
 
-    cout << "CLEAR COPY" << endl;
+    cout << "CLEAR COPY" << endl; //Очищаем копию
     copy.clear();
     copy << cout;
     cout << endl;
 
     string search = "a";
-    cout << "Search = " << search << endl;
-    cout << "count:" << t.search(search) << endl;
+    cout << "SEARCH " << search << " IN t" << endl;
+    cout << "RESULT:" << t.search(search) << endl;
     
-    cout << "Общее кол-во слов с учетом вхождений:" << t.size() << endl;
+    cout << "COUNT WORDS IN t:" << t.size() << endl;
 
-    cout << "DELETE" << endl;
+    cout << "DELETE a FROM t" << endl;
     t.remove("a");
+    cout << "DELETE ab FROM t" << endl;
     t.remove("ab");
     t << cout;
 

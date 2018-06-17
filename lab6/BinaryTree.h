@@ -22,8 +22,8 @@ class BinaryTree{
 
         void clear();
 
-        TreeNode* min(TreeNode *s);
-        TreeNode* max(TreeNode *s);
+        TreeNode* min(TreeNode *s); //Самый левый
+        TreeNode* max(TreeNode *s); //Самый правый
 
         void remove(string value);
 
@@ -42,7 +42,7 @@ class BinaryTree{
         TreeNode* searchTreeNode(TreeNode *n,string value);
 
         int search(TreeNode *n,string value);
-        TreeNode* dublicate(TreeNode *n);
+        TreeNode* duplicate(TreeNode *n);
         TreeNode* remove(TreeNode *n,string value);
         void insert(TreeNode *x,TreeNode *z);
         void show(TreeNode *n,ostream& out, int l);
@@ -66,14 +66,14 @@ BinaryTree::BinaryTree(string value){
 BinaryTree::BinaryTree(BinaryTree &other){
     root = new TreeNode;
     root->parent = 0x0;
-    root = dublicate(other.root);
+    root = duplicate(other.root);
     count = other.count;
 }
 
 BinaryTree::BinaryTree(BinaryTree &&other){
     root = new TreeNode;
     root->parent = 0x0;
-    root = dublicate(other.root);
+    root = duplicate(other.root);
     count = other.count;
     other.clear();
 }
@@ -88,7 +88,7 @@ BinaryTree& BinaryTree::operator=(BinaryTree &&other){
     return copy;
 }       
     
-TreeNode* BinaryTree::dublicate(TreeNode *n){
+TreeNode* BinaryTree::duplicate(TreeNode *n){
     if (n == 0x0){
 		return 0x0;
 	}
@@ -96,8 +96,8 @@ TreeNode* BinaryTree::dublicate(TreeNode *n){
     c->value = n->value;
     c->count = n->count;
     c->parent = n->parent;
-	c->less = dublicate(n->less);
-	c->more = dublicate(n->more);
+	c->less = duplicate(n->less);
+	c->more = duplicate(n->more);
     return c;
 }
 
@@ -238,6 +238,7 @@ TreeNode* BinaryTree::max(TreeNode *s){
 int BinaryTree::size(){
     return count;
 }
+
 void BinaryTree::show(TreeNode *n,ostream& out, int l){
     if(n != 0x0){
         show(n->less,out,l + 1);
@@ -255,7 +256,7 @@ void BinaryTree::show(int *tab_count, TreeNode *n,ostream& out){
     if(n->less != 0x0)
         show(tab_count,n->less, out);
 
-    //for(int i = 0;i < (*tab_count);i++)
+    //for(int i = 0;i < (*tab_count);i++) //Если раскоментитть будет видно как insert кладет в дерево
     //    out << "    ";
 
     out << n->value << " (" << n->count << ") " ;
