@@ -10,12 +10,13 @@ class Vector
         Vector(int n);
         Vector(int n,int value);
         Vector(int n,int value,int size_reserve);
-        Vector(const Vector *other);
         Vector(Vector &other);
+        Vector(Vector &&other);
         int length();
         void resize(int new_size);
         int operator[](const int idx);
-        Vector& operator=(const Vector &other);
+        Vector& operator=(Vector &other);
+        void operator=(Vector&& other);
         bool operator==(const Vector &other);
         bool operator!=(const Vector &other);
         bool operator<(const Vector &other);

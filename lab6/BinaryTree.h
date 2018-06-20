@@ -42,7 +42,7 @@ class BinaryTree{
         TreeNode* searchTreeNode(TreeNode *n,string value);
 
         int search(TreeNode *n,string value);
-        TreeNode* duplicate(TreeNode *n);
+        TreeNode* duplic(TreeNode *n);
         TreeNode* remove(TreeNode *n,string value);
         void insert(TreeNode *x,TreeNode *z);
         void show(TreeNode *n,ostream& out, int l);
@@ -66,14 +66,14 @@ BinaryTree::BinaryTree(string value){
 BinaryTree::BinaryTree(BinaryTree &other){
     root = new TreeNode;
     root->parent = 0x0;
-    root = duplicate(other.root);
+    root = duplic(other.root);
     count = other.count;
 }
 
 BinaryTree::BinaryTree(BinaryTree &&other){
     root = new TreeNode;
     root->parent = 0x0;
-    root = duplicate(other.root);
+    root = duplic(other.root);
     count = other.count;
     other.clear();
 }
@@ -84,11 +84,11 @@ BinaryTree& BinaryTree::operator=(BinaryTree &other){
 } 
 
 BinaryTree& BinaryTree::operator=(BinaryTree &&other){
-    BinaryTree copy(move(other));
-    return copy;
+    BinaryTree *copy = new BinaryTree(move(other)); //Оно здесь походу ругается. Иногда. 1 раз у меня было. Теперь не должно
+    return *copy;
 }       
     
-TreeNode* BinaryTree::duplicate(TreeNode *n){
+TreeNode* BinaryTree::duplic(TreeNode *n){
     if (n == 0x0){
 		return 0x0;
 	}
@@ -96,8 +96,8 @@ TreeNode* BinaryTree::duplicate(TreeNode *n){
     c->value = n->value;
     c->count = n->count;
     c->parent = n->parent;
-	c->less = duplicate(n->less);
-	c->more = duplicate(n->more);
+	c->less = duplic(n->less);
+	c->more = duplic(n->more);
     return c;
 }
 

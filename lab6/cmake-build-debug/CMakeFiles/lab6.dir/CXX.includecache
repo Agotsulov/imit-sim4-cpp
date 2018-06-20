@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/BinaryTree.h
+D:/Workspace/Cpp/imit-sim4-cpp/lab6/BinaryTree.h
 TreeNode.h
-/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/TreeNode.h
+D:/Workspace/Cpp/imit-sim4-cpp/lab6/TreeNode.h
 vector
 -
 iostream
@@ -16,17 +16,17 @@ iostream
 algorithm
 -
 
-/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/TreeNode.h
+D:/Workspace/Cpp/imit-sim4-cpp/lab6/TreeNode.h
 string
 -
 
-/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/main.cpp
+D:/Workspace/Cpp/imit-sim4-cpp/lab6/main.cpp
 iostream
 -
 vector
 -
 BinaryTree.h
-/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/BinaryTree.h
+D:/Workspace/Cpp/imit-sim4-cpp/lab6/BinaryTree.h
 string
 -
 

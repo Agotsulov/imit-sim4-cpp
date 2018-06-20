@@ -3,13 +3,13 @@
 #include <cstdlib>
 #include <cstring>
 
-Vector::vector()
+Vector::Vector()
 {
     len = 0;
     array = new int[0];
 }
 
-Vector::vector(int n)
+Vector::Vector(int n)
 {
     len = n;
     array = new int[len];
@@ -18,7 +18,7 @@ Vector::vector(int n)
     }
 }
 
-Vector::vector(int n,int value)
+Vector::Vector(int n,int value)
 {
     len = n;
     array = new int[len];
@@ -27,7 +27,7 @@ Vector::vector(int n,int value)
     }
 }
 
-Vector::vector(int n,int value,int size_reserve)
+Vector::Vector(int n,int value,int size_reserve)
 {
     len = n;
     array = new int[len];
@@ -38,27 +38,32 @@ Vector::vector(int n,int value,int size_reserve)
 }
 
 
-Vector::vector(const Vector *other)
+Vector::Vector(Vector &other)
 {
     //std::cout << "Копирование начало" << std::endl;
-    len = (*other).len;
+    len = other.len;
+    reserved = 0;
     array = new int[len];
 
-    memcpy(array, (*other).array, (*other).len * sizeof(int));
-
+    for(int i = 0 ;i < len;i++){
+        array[i] = other.array[i];
+    }
     //std::cout << "Копирование конец" << std::endl;
 }
 
-Vector::vector(Vector& other)
+Vector::Vector(Vector &&other)
 {
-    //std::cout << "Перемещение начало" << std::endl;
+    std::cout << "Перемещение начало" << std::endl;
     len = other.len;
+    reserved = 0;
     array = new int[len];
-
-    memcpy(array, other.array, other.len * sizeof(int));
+    //std::cout << std::endl  << len << std::endl;
+    for(int i = 0 ;i < len;i++){
+        array[i] = other.array[i];
+    }
 
     other.~Vector();
-    //std::cout << "Перемещение конец" << std::endl;
+    std::cout << "Перемещение конец" << std::endl;
 }
 
 int Vector::length(){
@@ -66,6 +71,7 @@ int Vector::length(){
 }
 
 void Vector::resize(int new_size){
+    if(new_size < 0) throw "Неверная длинна массива";
     if(new_size > length() + capacity()){
         int *newArray = new int[new_size];
         if(new_size > length()){
@@ -92,9 +98,21 @@ int Vector::operator[](const int idx){
     return array[idx];
 }
 
-Vector& Vector::operator=(const Vector& other){
-    Vector v(&other);
+Vector& Vector::operator=(Vector& other){
+    Vector v(other);
     return v;
+}
+
+
+void Vector::operator=(Vector&& other){
+    len = other.len;
+    reserved = 0;
+    array = new int[len];
+    for(int i = 0 ;i < len;i++){
+        array[i] = other.array[i];
+    }
+
+    other.~Vector();
 }
 
 bool Vector::operator==(const Vector& other){
@@ -167,11 +185,15 @@ Vector& Vector::operator+(const Vector &other){
 }
 
 void Vector::reserve(int size){
+    int * new_array = new int[size * 2];
+    for(int i = 0;i < len;i++){
+        new_array[i] = array[i];
+    }
     reserved = size;
-    array = (int*)realloc(array, sizeof(int) * size);
-    int * new_array = new int[len + reserved];
-    memcpy(new_array,array,len * sizeof(int));
+    len = size;
+    array = new_array;
 }
+
 int Vector::capacity(){
     return reserved;
 }
@@ -183,6 +205,10 @@ void Vector::pushBack(int value){
 
 
 int Vector::popBack(){
+    if(length() - 1 < 0) {
+        throw "Нет элементов";
+        return 0;
+    }
     resize(length() - 1);
     return array[length()];
 }
@@ -206,5 +232,6 @@ Vector::~Vector()
 {
     reserved = 0;
     len = 0;
-    delete array;
+    delete []array;
+    array = 0;
 }
