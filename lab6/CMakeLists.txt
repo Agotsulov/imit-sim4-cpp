@@ -8,4 +8,8 @@ include_directories(.)
 add_executable(lab6
         BinaryTree.h
         main.cpp
-        TreeNode.h)
+        TreeNode.h
+        AVLNode.h
+        AVLTree.h
+        AVLTree.cpp
+        )

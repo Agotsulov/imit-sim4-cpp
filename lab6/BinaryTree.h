@@ -42,7 +42,7 @@ class BinaryTree{
         TreeNode* searchTreeNode(TreeNode *n,string value);
 
         int search(TreeNode *n,string value);
-        TreeNode* duplic(TreeNode *n);
+        TreeNode* dub(TreeNode *n);
         TreeNode* remove(TreeNode *n,string value);
         void insert(TreeNode *x,TreeNode *z);
         void show(TreeNode *n,ostream& out, int l);
@@ -66,14 +66,14 @@ BinaryTree::BinaryTree(string value){
 BinaryTree::BinaryTree(BinaryTree &other){
     root = new TreeNode;
     root->parent = 0x0;
-    root = duplic(other.root);
+    root = dub(other.root);
     count = other.count;
 }
 
 BinaryTree::BinaryTree(BinaryTree &&other){
     root = new TreeNode;
     root->parent = 0x0;
-    root = duplic(other.root);
+    root = dub(other.root);
     count = other.count;
     other.clear();
 }
@@ -88,7 +88,7 @@ BinaryTree& BinaryTree::operator=(BinaryTree &&other){
     return *copy;
 }       
     
-TreeNode* BinaryTree::duplic(TreeNode *n){
+TreeNode* BinaryTree::dub(TreeNode *n){
     if (n == 0x0){
 		return 0x0;
 	}
@@ -96,8 +96,8 @@ TreeNode* BinaryTree::duplic(TreeNode *n){
     c->value = n->value;
     c->count = n->count;
     c->parent = n->parent;
-	c->less = duplic(n->less);
-	c->more = duplic(n->more);
+	c->less = dub(n->less);
+	c->more = dub(n->more);
     return c;
 }
 

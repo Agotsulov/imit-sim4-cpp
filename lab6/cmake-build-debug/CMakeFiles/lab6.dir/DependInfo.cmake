@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Workspace/Cpp/imit-sim4-cpp/lab6/main.cpp" "D:/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/lab6.dir/main.obj"
+  "/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/AVLTree.cpp" "/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/lab6.dir/AVLTree.o"
+  "/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/main.cpp" "/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/lab6.dir/main.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,3 +1,3 @@
-D:/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/lab6.dir
-D:/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/byzilio/Workspace/Cpp/imit-sim4-cpp/lab6/cmake-build-debug/CMakeFiles/lab6.dir
